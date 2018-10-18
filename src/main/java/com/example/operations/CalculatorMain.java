@@ -21,6 +21,8 @@ public class CalculatorMain implements CommandLineRunner {
 
     @Override
     public void run(String[] args) throws Exception {
+        if (args == null || args.length == 0)
+            return;
         Data data = in.readInput(args);
         Integer result = logic.perform(data);
         output.write(result);

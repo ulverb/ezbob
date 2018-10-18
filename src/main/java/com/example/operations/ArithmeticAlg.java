@@ -12,13 +12,18 @@ public class ArithmeticAlg implements Algorithm<Operator, Integer, Integer> {
             return 0;
         if (operation == null)
             throw new RuntimeException("Operation is not defined");
+
         switch (operation) {
             case plus:
-                return Stream.of(numbers).mapToInt(i -> i).sum();
+                return Stream.of(numbers).peek(i -> testPositiveValue(i <= 0)).mapToInt(i -> i).sum();
             case minus:
-                return Stream.of(numbers).mapToInt(i -> i * -1).sum() + 2 * numbers[0];
+                return Stream.of(numbers).peek(i -> testPositiveValue(i <= 0)).mapToInt(i -> i * -1).sum() + 2 * numbers[0];
         }
 
         throw new RuntimeException("Operation is not supported");
+    }
+
+    private static void testPositiveValue(boolean b) {
+        if (b) throw new RuntimeException("Value should be positive");
     }
 }
