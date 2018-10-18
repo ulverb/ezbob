@@ -10,7 +10,8 @@ public class ArithmeticAlg implements Algorithm<Operator, Integer, Integer> {
     public Integer calculate(Operator operation, Integer[] numbers) {
         if (numbers == null || numbers.length == 0)
             return 0;
-
+        if (operation == null)
+            throw new RuntimeException("Operation is not defined");
         switch (operation) {
             case plus:
                 return Stream.of(numbers).mapToInt(i -> i).sum();
