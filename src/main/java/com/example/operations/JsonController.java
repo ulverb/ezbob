@@ -19,10 +19,10 @@ public class JsonController {
     }
 
     @PostMapping("/calculate")
-    public String JSONRequest(@RequestBody Data data) {
+    public Integer JSONRequest(@RequestBody Data data) {
         Integer result = logic.perform(data);
         output.write(result);
 
-        return "OK";
+        return result;
     }
 }
