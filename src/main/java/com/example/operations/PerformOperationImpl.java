@@ -6,15 +6,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class PerformOperationImpl implements PerformOperation<Data, Integer> {
 
-    private Algorithm<Operator, Integer, Integer> algorithm;
+    private AlgorithmFactory algorithmFactory;
 
     @Autowired
-    public PerformOperationImpl(Algorithm<Operator, Integer, Integer> algorithm) {
-        this.algorithm = algorithm;
+    public PerformOperationImpl(AlgorithmFactory algorithmFactory) {
+        this.algorithmFactory = algorithmFactory;
     }
 
     @Override
     public Integer perform(Data data) {
-        return algorithm.calculate(data.getOperator(), data.getNumbers());
+        return algorithmFactory.getAlgorithm(data).calculate(data.getOperator(), data.getNumbers());
     }
 }

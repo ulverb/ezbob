@@ -15,11 +15,6 @@ public class CalculatorMain implements CommandLineRunner {
         SpringApplication.run(CalculatorMain.class, args);
     }
 
-    @Bean
-    public ObjectMapper getJsonMapper() {
-        return new ObjectMapper();
-    }
-
     @Autowired private ReadInput<String[], Data> in;
     @Autowired private PerformOperation<Data, Integer> logic;
     @Autowired private WriteOutput<Integer> output;

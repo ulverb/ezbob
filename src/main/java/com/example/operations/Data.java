@@ -4,4 +4,5 @@ package com.example.operations;
 public class Data {
     private Operator operator;
     private Integer[] numbers;
+    private String algorithm;
 }

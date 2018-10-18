@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.stream.Stream;
 
-@Service
+@Service("simple")
 public class ArithmeticAlg implements Algorithm<Operator, Integer, Integer> {
 
     public Integer calculate(Operator operation, Integer[] numbers) {
