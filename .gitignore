@@ -16,6 +16,8 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 ### Eclipse template
 
+.idea/
+*.iml
 .metadata
 bin/
 tmp/
